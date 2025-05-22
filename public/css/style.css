@@ -1,0 +1,49 @@
+.container{
+    flex: 1;
+}
+.navbar{
+    size: 5rem;
+}
+
+.fa-compass{
+    color: red;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+.f-info-socials i{
+    font-size: 1.5rem;
+    margin-right: 1.2rem;
+}
+
+.f-info-links, .f-info-socials, .f-info-brand {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.f-info{
+    text-align: center;
+    height: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.listing-card{
+    border: none;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem;
+    width: 100%;
+    object-fit: cover;
+}
+.card-body{
+    padding: 0;
+}
+.listing-link{
+    text-decoration: none;
+}
+

@@ -1,0 +1,43 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+    
+    <form method="post" action="/listings" novalidate class="needs-validation">
+        <div>
+            <lable for="title" class="form-label">Title</lable> 
+            <input name="listing[title]" placeholder="enter name" type="text" class="form-control" required>
+        </div>
+        <br>
+        <div>
+            <lable for="description" class="form-label">Description</lable>
+            <textarea name="listing[description]" type="text" class="form-control" required></textarea>
+        </div>
+        <br>
+        <div>
+            <lable for="image" class="form-label">Image</lable>
+            <input name="listing[image]" placeholder="link of image" type="text" class="form-control">
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="col-4">
+                <lable for="price" class="form-label">Price</lable>
+                <input name="listing[price]" placeholder="enter price" type="number" class="form-control" required>
+            </div>
+            <div class="col-4">
+                <lable for="country" class="form-label">Country</lable>
+                <input name="listing[country]" placeholder="enter Country" type="text" class="form-control" required>
+            </div>
+            <br>
+          </div>
+          <div class="col-8">
+              <lable for="location" class="form-label">Location</lable>
+              <input name="listing[location]" placeholder="enter location" type="text" class="form-control" required>
+          </div>
+        <br>
+        <button class="btn btn-dark">submit</button>
+    </form>
+</body>
+</div>
+</div>
