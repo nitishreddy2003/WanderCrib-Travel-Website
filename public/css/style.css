@@ -1,19 +1,39 @@
-.container{
+/* Make page take full height and use flex layout */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* This container will grow to fill available space */
+.container {
     flex: 1;
 }
-.navbar{
+
+/* Footer always at bottom */
+footer {
+    margin-top: auto;
+}
+
+/* Your original styles (preserved and improved) */
+.navbar {
     size: 5rem;
 }
 
-.fa-compass{
+.fa-compass {
     color: red;
     font-size: 2rem;
 }
 
-.nav-link{
+.nav-link {
     color: #222222 !important;
 }
-.f-info-socials i{
+
+.f-info-socials i {
     font-size: 1.5rem;
     margin-right: 1.2rem;
 }
@@ -24,26 +44,31 @@
     text-align: center;
     justify-content: center;
 }
-.f-info{
+
+.f-info {
     text-align: center;
     height: 8rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center; /* Center vertically */
 }
-.listing-card{
+
+.listing-card {
     border: none;
     margin-bottom: 2rem;
 }
-.card-img-top{
+
+.card-img-top {
     border-radius: 1rem;
     width: 100%;
     object-fit: cover;
 }
-.card-body{
+
+.card-body {
     padding: 0;
 }
-.listing-link{
+
+.listing-link {
     text-decoration: none;
 }
-

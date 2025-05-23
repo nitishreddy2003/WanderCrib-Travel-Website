@@ -57,26 +57,26 @@ router.delete("/:id", async (req, res) => {
 });
 
 // Add Review to Listing
-router.post("/:id/reviews", async (req, res) => {
-    let listing = await Listing.findById(req.params.id);
-    let newReview = new Review(req.body.review);
+// router.post("/:id/reviews", async (req, res) => {
+//     let listing = await Listing.findById(req.params.id);
+//     let newReview = new Review(req.body.review);
 
-    listing.reviews.push(newReview);
+//     listing.reviews.push(newReview);
 
-    await newReview.save();
-    await listing.save();
+//     await newReview.save();
+//     await listing.save();
 
-    res.redirect(`/listings/${listing._id}`);
-});
+//     res.redirect(`/listings/${listing._id}`);
+// });
 
-router.delete("/:id/reviews/:reviewId",async(req,res)=>{
-    let {id,reviewId}=req.params;
+// router.delete("/:id/reviews/:reviewId",async(req,res)=>{
+//     let {id,reviewId}=req.params;
 
-    await Listing.findByIdAndUpdate(id,{$pull: {reviews:reviewId}});
-    await Review.findByIdAndDelete(reviewId);
-    await Review.findById(reviewId);
+//     await Listing.findByIdAndUpdate(id,{$pull: {reviews:reviewId}});
+//     await Review.findByIdAndDelete(reviewId);
+//     await Review.findById(reviewId);
 
-    res.redirect(`/listings/${id}`);
-})
+//     res.redirect(`/listings/${id}`);
+// })
 
 module.exports = router;
