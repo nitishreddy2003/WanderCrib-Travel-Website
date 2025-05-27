@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Listing = require('../models/listing');
 const Review = require('../models/review'); // Don't forget to include this!
+const {isLoggedIn}=require('../middleware.js');
 
 // Index Route
 router.get("/", async (req, res) => {
@@ -10,7 +11,7 @@ router.get("/", async (req, res) => {
 });
 
 // New Listing Form
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn, (req, res) => {
     res.render("listings/new.ejs");
 });
 
@@ -43,14 +44,14 @@ router.get("/:id/edit", async (req, res) => {
 });
 
 // Update Listing
-router.put("/:id", async (req, res) => {
+router.put("/:id",isLoggedIn, async (req, res) => {
     let id = req.params.id;
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
     res.redirect("/listings");
 });
 
 // Delete Listing
-router.delete("/:id", async (req, res) => {
+router.delete("/:id",isLoggedIn, async (req, res) => {
     let id = req.params.id;
     await Listing.findByIdAndDelete(id);
     res.redirect("/listings");

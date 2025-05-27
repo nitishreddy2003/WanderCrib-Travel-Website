@@ -72,10 +72,10 @@ app.get('/demouser',async(req,res)=>{
   res.send(registeredUSer);
 });
 
-// app.get("/", async (req,res) => {
-//   const allListings=await Listing.find({});
-//   res.render("listings/index.ejs",{allListings});
-// });
+app.get("/", async (req,res) => {
+  const allListings=await Listing.find({});
+  res.render("listings/index.ejs",{allListings});
+});
 
 app.use("/listings",listingRoute);
 app.use("/listings/:id/reviews",reviewRoute);
