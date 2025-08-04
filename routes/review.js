@@ -2,15 +2,17 @@ const express = require('express');
 const router = express.Router({ mergeParams: true });
 const Review = require('../models/review');
 const Listing = require('../models/listing');
+const { isLoggedIn,isReviewAuthor } = require('../middleware');
 
 // Create a new review for a listing
-router.post("/", async (req, res) => {
+router.post("/",isLoggedIn, async (req, res) => {
     try {
         const listing = await Listing.findById(req.params.id);
         if (!listing) {
             return res.status(404).send("Listing not found");
         }
         const newReview = new Review(req.body.review);
+        newReview.author = req.user._id;
         listing.reviews.push(newReview);
         await newReview.save();
         await listing.save();
@@ -22,7 +24,7 @@ router.post("/", async (req, res) => {
 });
 
 // Delete a review by reviewId
-router.delete("/:reviewId", async (req, res) => {
+router.delete("/:reviewId",isLoggedIn, isReviewAuthor, async (req, res) => {
     try {
         const { id, reviewId } = req.params;
         await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
