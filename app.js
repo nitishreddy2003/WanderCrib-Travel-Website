@@ -23,28 +23,28 @@ const listingRoute=require("./routes/listing.js");
 const reviewRoute=require('./routes/review.js');
 const userRoute=require("./routes/user.js");
 
-// main()
-//   .then(()=>{
-//     console.log("Connected to DB");
-//   })
-//   .catch((err)=>{
-//     console.log(err);
-//   });
+main()
+  .then(()=>{
+    console.log("Connected to DB");
+  })
+  .catch((err)=>{
+    console.log(err);
+  });
 
-// async function main() {
-//     await mongoose.connect(MONGO_URL);
-// }
+async function main() {
+    await mongoose.connect(MONGO_URL);
+}
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => {
-  console.log("Connected to DB");
-})
-.catch((err) => {
-  console.error("DB connection error:", err);
-});
+// mongoose.connect(process.env.MONGO_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
+// .then(() => {
+//   console.log("Connected to DB");
+// })
+// .catch((err) => {
+//   console.error("DB connection error:", err);
+// });
 
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json());
@@ -145,7 +145,7 @@ app.use("/",userRoute);
 //   res.redirect(`/listings/${listing._id}`);
 // })
 
-// app.listen(8080,()=>{
-//     console.log("server is listening to port 8080");
-// })
+app.listen(8080,()=>{
+    console.log("server is listening to port 8080");
+})
 module.exports = app;
