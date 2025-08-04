@@ -26,7 +26,14 @@ router.post("/", async (req, res) => {
 // Show Specific Listing
 router.get("/:id", async (req, res) => {
     let id = req.params.id;
-    const listing = await Listing.findById(id).populate("reviews");
+    const listing = await Listing.findById(id)
+    .populate({
+        path: "reviews", 
+        populate: {
+            path: "author",
+        },
+    })
+    .populate("owner");
     if (!listing) {
         return res.status(404).send("Listing not found");
     }
